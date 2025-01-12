@@ -1,10 +1,6 @@
 package me.henji.picpaysimplificado.domain.transaction;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.Setter;
 import me.henji.picpaysimplificado.domain.user.User;
 
 import java.math.BigDecimal;
@@ -12,10 +8,6 @@ import java.time.LocalDateTime;
 
 @Entity(name="transactions")
 @Table(name="transactions")
-@Getter
-@Setter
-@AllArgsConstructor
-@EqualsAndHashCode(of="id")
 public class Transaction {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -29,4 +21,19 @@ public class Transaction {
     private User receiver;
     private LocalDateTime timestamp;
 
+    public void setAmount(BigDecimal value) {
+        this.amount = value;
+    }
+
+    public void setSender(User sender) {
+        this.sender = sender;
+    }
+
+    public void setReceiver(User receiver) {
+        this.receiver = receiver;
+    }
+
+    public void setTimestamp(LocalDateTime timestamp) {
+        this.timestamp = timestamp;
+    }
 }
