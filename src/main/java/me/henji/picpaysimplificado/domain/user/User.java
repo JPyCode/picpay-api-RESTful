@@ -28,10 +28,11 @@ public class User {
         this.document = data.document();
         this.email = data.email();
         this.password = data.password();
-        this.balance = data.value();
+        this.balance = data.balance();
         this.userType = data.userType();
     }
 
+    public User() {}
 
     public UserType getUserType() {
         return userType;
