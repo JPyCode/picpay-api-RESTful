@@ -1,12 +1,20 @@
 package me.henji.picpaysimplificado.domain.user;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import me.henji.picpaysimplificado.dtos.UserDTO;
 
 import java.math.BigDecimal;
 
 @Entity(name="users")
 @Table(name="users")
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -30,43 +38,5 @@ public class User {
         this.password = data.password();
         this.balance = data.balance();
         this.userType = data.userType();
-    }
-
-    public User() {}
-
-    public UserType getUserType() {
-        return userType;
-    }
-
-    public BigDecimal getBalance() {
-        return this.balance;
-    }
-
-    public void setBalance(BigDecimal value) {
-        this.balance = value;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public String getDocument() {
-        return document;
-    }
-
-    public String getPassword() {
-        return password;
     }
 }
